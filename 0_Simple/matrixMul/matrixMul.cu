@@ -227,7 +227,8 @@ int MatrixMultiply(int argc, char **argv,
     gettimeofday(&kernel_start, NULL);
 #endif
     // Execute the kernel
-    int nIter = 300;
+    // int nIter = 300;
+    int nIter = 10;
 
     for (int j = 0; j < nIter; j++) {
         if (block_size == 16) {
@@ -291,6 +292,7 @@ int MatrixMultiply(int argc, char **argv,
             printf("Error! Matrix[%05d]=%.8f, ref=%.8f error term is > %E\n",
                    i, h_C[i], dimsA.x * valB, eps);
             correct = false;
+            break;
         }
     }
 
